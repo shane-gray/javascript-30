@@ -23,6 +23,18 @@ const cities = [];
 fetch(endpoint)
 	.then(data => data.json())
 	.then(data => cities.push(...data));
+	
+function findMatches(word, cities) {
+	
+	return cities.filter(place => {
+		
+		const regex = new RegExp(wordToMatch, 'gi');
+		
+		return place.city.match(regex) || place.state.match(regex);
+		
+	});
+	
+}
 
 </script>
   </body>
